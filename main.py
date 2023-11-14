@@ -21,5 +21,9 @@ for index, row in df.iterrows():
     pdf.cell(w=0, h=12, txt=row["Topic"], align="L", ln=1)
     pdf.line(10, 21, 200, 21)
 
+    # Add additional pages to the PDF based on the number of pages required for a topic
+    for i in range(row["Pages"] - 1):
+        pdf.add_page()
+
 # Save the PDF document as output.pdf
 pdf.output("output.pdf")
